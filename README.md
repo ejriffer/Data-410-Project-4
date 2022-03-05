@@ -62,6 +62,20 @@ print('The Cross-validated Mean Squared Error for 2 Boosted is : '+str(np.mean(m
 print('The Cross-validated Mean Squared Error for 3 Boosted is : '+str(np.mean(mse_b3)))
 ```
 
+Based on the code above we get the following outputs:
+
+~ The Cross-validated Mean Squared Error for LWR is : 150.76979944789622
+
+~ The Cross-validated Mean Squared Error for Boosted LWR is : 149.4101861333482
+
+~ The Cross-validated Mean Squared Error for XGB is : 153.6022898582568
+
+~ The Cross-validated Mean Squared Error for 2 Boosted is : 147.08542734363533
+
+~ The Cross-validated Mean Squared Error for 3 Boosted is : 147.5077686091085
+
+We can conclude that the repeated boosting models are the best, with the 2 boosted model performing slighly better than the 3 boosted model.
+
 ## LightGBM
 
 LightGBM is a Microsoft gradient boosting technique. It uses a decision tree to boost the outcome like normal gradient boosting and XGBoosting. However, instead of having a default algorithm (like XGBoost) that can be difficult to optimize LightGBM uses histograms to split the features into bins. 
@@ -89,3 +103,8 @@ for idxtrain, idxtest in kf.split(X):
   
 print('The Cross-validated Mean Squared Error for GBM is : '+str(np.mean(mse_gbm)))
 ```
+Based on the code above we get the following output:
+
+~ The Cross-validated Mean Squared Error for GBM is : 144.1742765861046
+
+LightGBM outperformed every model before, and ran much quicker as well. Therefore we can conlucde the LightGBM is the most accurate model for this data. 
