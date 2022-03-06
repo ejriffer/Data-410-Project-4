@@ -2,13 +2,13 @@
 
 ## Multiple Boosting Algorithm
 
-One way to improve upon Gradient Boosting and XGBoost is to apply multiple boosting to a dataset. This recursive call allows models to continually improve, and become more accurate the more times you boost it. 
+One way to improve upon Gradient Boosting and XGBoost is to apply multiple boosting to a dataset. This recursive call continually boosts models that have already been boosted in hopes of increasingly improving the accuracy. 
 
 Below multiple boosting algorithms have been applied to the Concerte Compressive Strength dataset. The nested loop includes a regular lowess model, a gradient boosted model, an XGBoosted model, a twice boosted model, and a three times boosted model for comparison. 
 
 ```
 # data
-X = concrete[['cement','slag','ash','water', 'superplastic','coarseagg','fineagg', 'age']].values
+X = concrete[['cement', 'slag', 'superplastic']].values
 y = concrete['strength'].values
 
 mse_lwr = []
@@ -74,7 +74,7 @@ Based on the code above we get the following outputs:
 
 ~ The Cross-validated Mean Squared Error for 3 Boosted is : 147.5077686091085
 
-We can conclude that the repeated boosting models are the best, with the 2 boosted model performing slighly better than the 3 boosted model.
+We can conclude that the repeated boosting models are the best, with the 2 boosted model performing just slighly better than the 3 boosted model.
 
 ## LightGBM
 
@@ -107,4 +107,4 @@ Based on the code above we get the following output:
 
 ~ The Cross-validated Mean Squared Error for GBM is : 144.1742765861046
 
-LightGBM outperformed every model before, and ran much quicker as well. Therefore we can conlucde the LightGBM is the most accurate model for this data. 
+LightGBM outperformed every model before, as well as running much quicker. Therefore we can conlucde the LightGBM is the most accurate model for this data. 
